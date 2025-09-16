@@ -1,0 +1,12 @@
+# amplify
+node_modules
+.amplify
+# amplify_outputs* - INTENTIONALLY NOT IGNORED FOR TEMPLATE
+# This allows students/developers to immediately run the app after cloning
+# For production projects, uncomment the line below:
+# amplify_outputs*
+amplifyconfiguration*
+.next
+
+logs/.env.local
+setup-google-oauth-secrets.sh

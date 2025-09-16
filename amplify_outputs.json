@@ -1,0 +1,1320 @@
+{
+  "auth": {
+    "user_pool_id": "us-east-1_CqwOaAcKm",
+    "aws_region": "us-east-1",
+    "user_pool_client_id": "4q55aoch4bvo0duhs067dlr52",
+    "identity_pool_id": "us-east-1:edfec7c7-2ce2-486a-9b6f-2331c466bb37",
+    "mfa_methods": [],
+    "standard_required_attributes": [
+      "email"
+    ],
+    "username_attributes": [
+      "email"
+    ],
+    "user_verification_types": [
+      "email"
+    ],
+    "groups": [
+      {
+        "ADMINS": {
+          "precedence": 0
+        }
+      }
+    ],
+    "mfa_configuration": "NONE",
+    "password_policy": {
+      "min_length": 8,
+      "require_lowercase": true,
+      "require_numbers": true,
+      "require_symbols": true,
+      "require_uppercase": true
+    },
+    "unauthenticated_identities_enabled": true
+  },
+  "data": {
+    "url": "https://3gawwj6ehngjhlepp4hcnpsyvu.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_region": "us-east-1",
+    "api_key": "da2-66tipdnhsfbdbknda4mgtv7oby",
+    "default_authorization_type": "API_KEY",
+    "authorization_types": [
+      "AMAZON_COGNITO_USER_POOLS",
+      "AWS_IAM"
+    ],
+    "model_introspection": {
+      "version": 1,
+      "models": {
+        "MalwareSample": {
+          "name": "MalwareSample",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "sha256Hash": {
+              "name": "sha256Hash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "sha1Hash": {
+              "name": "sha1Hash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "md5Hash": {
+              "name": "md5Hash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "fileName": {
+              "name": "fileName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "fileSize": {
+              "name": "fileSize",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "fileType": {
+              "name": "fileType",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "fileTypeMime": {
+              "name": "fileTypeMime",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "signature": {
+              "name": "signature",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "clamav": {
+              "name": "clamav",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "firstSeen": {
+              "name": "firstSeen",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": []
+            },
+            "lastSeen": {
+              "name": "lastSeen",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": []
+            },
+            "reporter": {
+              "name": "reporter",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "originCountry": {
+              "name": "originCountry",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "imphash": {
+              "name": "imphash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "tlsh": {
+              "name": "tlsh",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "telfhash": {
+              "name": "telfhash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "gimphash": {
+              "name": "gimphash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "dhashIcon": {
+              "name": "dhashIcon",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "tags": {
+              "name": "tags",
+              "isArray": true,
+              "type": "String",
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "deliveryMethod": {
+              "name": "deliveryMethod",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "intelligence": {
+              "name": "intelligence",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "threatScore": {
+              "name": "threatScore",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "threatLevel": {
+              "name": "threatLevel",
+              "isArray": false,
+              "type": {
+                "enum": "MalwareSampleThreatLevel"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "MalwareSamples",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "malwareSamplesBySignatureAndFirstSeen",
+                "queryField": "listBySigature",
+                "fields": [
+                  "signature",
+                  "firstSeen"
+                ]
+              }
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "malwareSamplesByOriginCountryAndFirstSeen",
+                "queryField": "listByCountry",
+                "fields": [
+                  "originCountry",
+                  "firstSeen"
+                ]
+              }
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  },
+                  {
+                    "allow": "private",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
+        },
+        "AnalysisResult": {
+          "name": "AnalysisResult",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "sampleHash": {
+              "name": "sampleHash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "analysisType": {
+              "name": "analysisType",
+              "isArray": false,
+              "type": {
+                "enum": "AnalysisResultAnalysisType"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "threatScore": {
+              "name": "threatScore",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "threatLevel": {
+              "name": "threatLevel",
+              "isArray": false,
+              "type": {
+                "enum": "AnalysisResultThreatLevel"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "behavioralIndicators": {
+              "name": "behavioralIndicators",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "networkIndicators": {
+              "name": "networkIndicators",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "fileIndicators": {
+              "name": "fileIndicators",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "mitreTechniques": {
+              "name": "mitreTechniques",
+              "isArray": true,
+              "type": "String",
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "notes": {
+              "name": "notes",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "analysisDate": {
+              "name": "analysisDate",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": true,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "AnalysisResults",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  },
+                  {
+                    "allow": "private",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
+        },
+        "IOC": {
+          "name": "IOC",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "sampleHash": {
+              "name": "sampleHash",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "iocType": {
+              "name": "iocType",
+              "isArray": false,
+              "type": {
+                "enum": "IOCIocType"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "iocValue": {
+              "name": "iocValue",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "confidence": {
+              "name": "confidence",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "firstObserved": {
+              "name": "firstObserved",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": []
+            },
+            "lastObserved": {
+              "name": "lastObserved",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": []
+            },
+            "isActive": {
+              "name": "isActive",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "IOCS",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  },
+                  {
+                    "allow": "private",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
+        },
+        "CollectionRun": {
+          "name": "CollectionRun",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "startTime": {
+              "name": "startTime",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": true,
+              "attributes": []
+            },
+            "endTime": {
+              "name": "endTime",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": []
+            },
+            "status": {
+              "name": "status",
+              "isArray": false,
+              "type": {
+                "enum": "CollectionRunStatus"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "samplesCollected": {
+              "name": "samplesCollected",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "newSamples": {
+              "name": "newSamples",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "config": {
+              "name": "config",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "errors": {
+              "name": "errors",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "CollectionRuns",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  },
+                  {
+                    "allow": "private",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
+        },
+        "DashboardStats": {
+          "name": "DashboardStats",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "date": {
+              "name": "date",
+              "isArray": false,
+              "type": "AWSDate",
+              "isRequired": true,
+              "attributes": []
+            },
+            "totalSamples": {
+              "name": "totalSamples",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "uniqueFamilies": {
+              "name": "uniqueFamilies",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "highThreatCount": {
+              "name": "highThreatCount",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "topMalwareFamilies": {
+              "name": "topMalwareFamilies",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "topCountries": {
+              "name": "topCountries",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "dailyTrend": {
+              "name": "dailyTrend",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "DashboardStats",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  },
+                  {
+                    "allow": "private",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
+        }
+      },
+      "enums": {
+        "MalwareSampleThreatLevel": {
+          "name": "MalwareSampleThreatLevel",
+          "values": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+          ]
+        },
+        "AnalysisResultAnalysisType": {
+          "name": "AnalysisResultAnalysisType",
+          "values": [
+            "AUTOMATED",
+            "MANUAL",
+            "SANDBOX",
+            "AI"
+          ]
+        },
+        "AnalysisResultThreatLevel": {
+          "name": "AnalysisResultThreatLevel",
+          "values": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "CRITICAL"
+          ]
+        },
+        "IOCIocType": {
+          "name": "IOCIocType",
+          "values": [
+            "IP",
+            "DOMAIN",
+            "URL",
+            "EMAIL",
+            "FILE_HASH",
+            "REGISTRY",
+            "MUTEX"
+          ]
+        },
+        "CollectionRunStatus": {
+          "name": "CollectionRunStatus",
+          "values": [
+            "RUNNING",
+            "COMPLETED",
+            "FAILED"
+          ]
+        }
+      },
+      "nonModels": {
+        "UserInfo": {
+          "name": "UserInfo",
+          "fields": {
+            "username": {
+              "name": "username",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "email": {
+              "name": "email",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "givenName": {
+              "name": "givenName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "familyName": {
+              "name": "familyName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "profilePicture": {
+              "name": "profilePicture",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "status": {
+              "name": "status",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "enabled": {
+              "name": "enabled",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "lastModified": {
+              "name": "lastModified",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "attributes": {
+              "name": "attributes",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        },
+        "GroupInfo": {
+          "name": "GroupInfo",
+          "fields": {
+            "name": {
+              "name": "name",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "description": {
+              "name": "description",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "precedence": {
+              "name": "precedence",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "lastModified": {
+              "name": "lastModified",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        },
+        "UserInput": {
+          "name": "UserInput",
+          "fields": {
+            "email": {
+              "name": "email",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "givenName": {
+              "name": "givenName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "familyName": {
+              "name": "familyName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "profilePicture": {
+              "name": "profilePicture",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "temporaryPassword": {
+              "name": "temporaryPassword",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "suppressEmail": {
+              "name": "suppressEmail",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            },
+            "limit": {
+              "name": "limit",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "filter": {
+              "name": "filter",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        },
+        "GroupInput": {
+          "name": "GroupInput",
+          "fields": {
+            "description": {
+              "name": "description",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "precedence": {
+              "name": "precedence",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "limit": {
+              "name": "limit",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false,
+              "attributes": []
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        },
+        "AuthUserQueryReturnType": {
+          "name": "AuthUserQueryReturnType",
+          "fields": {
+            "user": {
+              "name": "user",
+              "isArray": false,
+              "type": {
+                "nonModel": "UserInfo"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "users": {
+              "name": "users",
+              "isArray": true,
+              "type": {
+                "nonModel": "UserInfo"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "groups": {
+              "name": "groups",
+              "isArray": true,
+              "type": {
+                "nonModel": "GroupInfo"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "success": {
+              "name": "success",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        },
+        "AuthGroupMutationReturnType": {
+          "name": "AuthGroupMutationReturnType",
+          "fields": {
+            "group": {
+              "name": "group",
+              "isArray": false,
+              "type": {
+                "nonModel": "GroupInfo"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "groups": {
+              "name": "groups",
+              "isArray": true,
+              "type": {
+                "nonModel": "GroupInfo"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "users": {
+              "name": "users",
+              "isArray": true,
+              "type": {
+                "nonModel": "UserInfo"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "success": {
+              "name": "success",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            }
+          }
+        }
+      },
+      "queries": {
+        "authUserQuery": {
+          "name": "authUserQuery",
+          "isArray": false,
+          "type": {
+            "nonModel": "AuthUserQueryReturnType"
+          },
+          "isRequired": false,
+          "arguments": {
+            "operation": {
+              "name": "operation",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true
+            },
+            "userId": {
+              "name": "userId",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "input": {
+              "name": "input",
+              "isArray": false,
+              "type": {
+                "input": "UserInputInput"
+              },
+              "isRequired": false
+            }
+          }
+        }
+      },
+      "mutations": {
+        "authGroupMutation": {
+          "name": "authGroupMutation",
+          "isArray": false,
+          "type": {
+            "nonModel": "AuthGroupMutationReturnType"
+          },
+          "isRequired": false,
+          "arguments": {
+            "operation": {
+              "name": "operation",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true
+            },
+            "groupName": {
+              "name": "groupName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "userId": {
+              "name": "userId",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "input": {
+              "name": "input",
+              "isArray": false,
+              "type": {
+                "input": "GroupInputInput"
+              },
+              "isRequired": false
+            }
+          }
+        }
+      },
+      "inputs": {
+        "UserInputInput": {
+          "name": "UserInputInput",
+          "attributes": {
+            "email": {
+              "name": "email",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "givenName": {
+              "name": "givenName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "familyName": {
+              "name": "familyName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "profilePicture": {
+              "name": "profilePicture",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "temporaryPassword": {
+              "name": "temporaryPassword",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "suppressEmail": {
+              "name": "suppressEmail",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false
+            },
+            "limit": {
+              "name": "limit",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "filter": {
+              "name": "filter",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            }
+          }
+        },
+        "GroupInputInput": {
+          "name": "GroupInputInput",
+          "attributes": {
+            "description": {
+              "name": "description",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "precedence": {
+              "name": "precedence",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false
+            },
+            "limit": {
+              "name": "limit",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": false
+            },
+            "paginationToken": {
+              "name": "paginationToken",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "version": "1.4"
+}
