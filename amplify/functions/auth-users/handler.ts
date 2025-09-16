@@ -13,7 +13,7 @@ import {
   UserType,
   AttributeType
 } from '@aws-sdk/client-cognito-identity-provider';
-import { env } from '$amplify/env/auth-users';
+// import { env } from '$amplify/env/auth-users';
 
 const cognitoClient = new CognitoIdentityProviderClient();
 
@@ -35,7 +35,7 @@ const formatUser = (user: UserType) => ({
 
 export const handler: Schema['authUserQuery']['functionHandler'] = async (event): Promise<any> => {
   const { operation, userId, input } = event.arguments;
-  const userPoolId = env.AMPLIFY_AUTH_USERPOOL_ID;
+  const userPoolId = process.env.AMPLIFY_AUTH_USERPOOL_ID;
 
   if (!userPoolId) {
     throw new Error('User Pool ID not configured');
