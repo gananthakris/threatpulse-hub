@@ -1,4 +1,4 @@
-# 🚀 Chill Amplify Template
+# 🚀 ThreatPulse Hub
 ## The Revolutionary Component-First Development Framework
 
 This isn't just another starter template. This is a **paradigm shift** in how AI and humans build web applications - eliminating the biggest bottlenecks in modern frontend development.
@@ -184,4 +184,5 @@ This template is being actively developed with a focus on **education-first** an
 
 ---
 
-**Built with ❤️ by Chinchilla AI** - Revolutionizing development education through intelligent tooling and component-first architecture.
+
+**Built by Gokulkrishna A** - Revolutionizing development education through intelligent tooling and component-first architecture.
