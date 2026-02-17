@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { getCurrentUser, fetchAuthSession, fetchUserAttributes } from 'aws-amplify/auth/server';
+import type { AmplifyServer } from 'aws-amplify/adapter-core';
 import { runWithAmplifyServerContext } from './amplify-server-config';
 
 export interface ServerUser {
@@ -17,7 +18,7 @@ export async function getServerUser(): Promise<ServerUser | null> {
   try {
     const user = await runWithAmplifyServerContext({
       nextServerContext: { cookies },
-      operation: async (contextSpec) => {
+      operation: async (contextSpec: AmplifyServer.ContextSpec) => {
         try {
           const currentUser = await getCurrentUser(contextSpec);
           const attributes = await fetchUserAttributes(contextSpec);
@@ -50,7 +51,7 @@ export async function isAuthenticated(): Promise<boolean> {
   try {
     const authenticated = await runWithAmplifyServerContext({
       nextServerContext: { cookies },
-      operation: async (contextSpec) => {
+      operation: async (contextSpec: AmplifyServer.ContextSpec) => {
         try {
           const session = await fetchAuthSession(contextSpec);
           return !!(session?.tokens?.accessToken);
@@ -75,7 +76,7 @@ export async function getAuthSession() {
   try {
     const session = await runWithAmplifyServerContext({
       nextServerContext: { cookies },
-      operation: async (contextSpec) => {
+      operation: async (contextSpec: AmplifyServer.ContextSpec) => {
         try {
           return await fetchAuthSession(contextSpec);
         } catch (error) {

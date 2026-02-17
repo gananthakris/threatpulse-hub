@@ -125,7 +125,7 @@ export default function AuthPage() {
       if (response.data?.users) {
         // For each user, get their groups
         const usersWithGroups = await Promise.all(
-          response.data.users.map(async (user) => {
+          (response.data.users as unknown as Array<Partial<User> | null>).map(async (user) => {
             if (!user) return null;
             try {
               const groupsResponse = await client.queries.authUserQuery({
@@ -134,7 +134,7 @@ export default function AuthPage() {
               });
               return {
                 ...user,
-                groups: groupsResponse.data?.groups?.map(g => g?.name).filter(Boolean) || []
+                groups: (groupsResponse.data?.groups as unknown as Array<{name?: string | null} | null>)?.map(g => g?.name).filter(Boolean) || []
               } as User;
             } catch {
               return { ...user, groups: [] } as User;
@@ -166,7 +166,7 @@ export default function AuthPage() {
       if (response.data?.groups) {
         // For each group, get member count
         const groupsWithCounts = await Promise.all(
-          response.data.groups.map(async (group) => {
+          (response.data.groups as unknown as Array<Partial<Group> | null>).map(async (group) => {
             if (!group) return null;
             try {
               const membersResponse = await client.mutations.authGroupMutation({
@@ -176,7 +176,7 @@ export default function AuthPage() {
               });
               return {
                 ...group,
-                memberCount: membersResponse.data?.users?.length || 0
+                memberCount: (membersResponse.data?.users as unknown as unknown[])?.length || 0
               } as Group;
             } catch {
               return { ...group, memberCount: 0 } as Group;
@@ -387,7 +387,7 @@ export default function AuthPage() {
       });
       
       if (response.data?.users) {
-        setGroupMembers(response.data.users.filter(Boolean) as User[]);
+        setGroupMembers((response.data.users as unknown as Array<Partial<User> | null>).filter(Boolean) as User[]);
       }
     } catch (err) {
       console.error('Error loading group members:', err);

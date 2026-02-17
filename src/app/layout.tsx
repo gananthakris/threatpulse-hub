@@ -18,7 +18,7 @@ import "../../styles/globals.css";
 import "../../styles/dark.css";
 
 import * as React from "react";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
@@ -27,8 +27,8 @@ import { AuthProvider } from "@/providers/AuthProvider";
 import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 
 export const metadata = {
-  title: "Chill Components - AI-Powered Component Library",
-  description: "A comprehensive React component library built with Material-UI and AWS Amplify",
+  title: "ThreatPulse Intelligence Hub",
+  description: "Real-time malware threat intelligence platform powered by AWS Amplify",
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {

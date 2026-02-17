@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { fetchAuthSession } from 'aws-amplify/auth/server';
+import type { AmplifyServer } from 'aws-amplify/adapter-core';
 import { runWithAmplifyServerContext } from '@/utils/amplify-server-config';
 
 // Define public paths that don't require authentication
@@ -48,7 +49,7 @@ export async function middleware(request: NextRequest) {
       // Run auth check in Amplify server context
       const authenticated = await runWithAmplifyServerContext({
         nextServerContext: { request, response: NextResponse.next() },
-        operation: async (contextSpec) => {
+        operation: async (contextSpec: AmplifyServer.ContextSpec) => {
           try {
             const session = await fetchAuthSession(contextSpec);
             // Check if we have valid tokens
