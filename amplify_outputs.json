@@ -1,36 +1,4 @@
 {
-  "auth": {
-    "user_pool_id": "us-east-1_CqwOaAcKm",
-    "aws_region": "us-east-1",
-    "user_pool_client_id": "4q55aoch4bvo0duhs067dlr52",
-    "identity_pool_id": "us-east-1:edfec7c7-2ce2-486a-9b6f-2331c466bb37",
-    "mfa_methods": [],
-    "standard_required_attributes": [
-      "email"
-    ],
-    "username_attributes": [
-      "email"
-    ],
-    "user_verification_types": [
-      "email"
-    ],
-    "groups": [
-      {
-        "ADMINS": {
-          "precedence": 0
-        }
-      }
-    ],
-    "mfa_configuration": "NONE",
-    "password_policy": {
-      "min_length": 8,
-      "require_lowercase": true,
-      "require_numbers": true,
-      "require_symbols": true,
-      "require_uppercase": true
-    },
-    "unauthenticated_identities_enabled": true
-  },
   "data": {
     "url": "https://3gawwj6ehngjhlepp4hcnpsyvu.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_region": "us-east-1",

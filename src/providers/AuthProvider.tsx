@@ -312,9 +312,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             name: 'Google User',
             avatar: 'G'
           };
-          
           localStorage.setItem('mockUser', JSON.stringify(mockGoogleUser));
           localStorage.setItem('isAuthenticated', 'true');
+          document.cookie = 'tp_session=' + encodeURIComponent(JSON.stringify(mockGoogleUser)) + '; path=/; max-age=86400; SameSite=Lax';
           setUser(mockGoogleUser);
           router.push('/');
         } else if (provider === 'Email' && credentials) {
@@ -323,9 +323,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             name: credentials.email.split('@')[0],
             avatar: credentials.email[0].toUpperCase()
           };
-          
           localStorage.setItem('mockUser', JSON.stringify(mockEmailUser));
           localStorage.setItem('isAuthenticated', 'true');
+          document.cookie = 'tp_session=' + encodeURIComponent(JSON.stringify(mockEmailUser)) + '; path=/; max-age=86400; SameSite=Lax';
           setUser(mockEmailUser);
           router.push('/');
         }
@@ -379,9 +379,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           name: email.split('@')[0],
           avatar: email[0].toUpperCase()
         };
-        
         localStorage.setItem('mockUser', JSON.stringify(mockNewUser));
         localStorage.setItem('isAuthenticated', 'true');
+        document.cookie = 'tp_session=' + encodeURIComponent(JSON.stringify(mockNewUser)) + '; path=/; max-age=86400; SameSite=Lax';
         setUser(mockNewUser);
         router.push('/');
       }
@@ -451,6 +451,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Mock sign out
         localStorage.removeItem('mockUser');
         localStorage.removeItem('isAuthenticated');
+        document.cookie = 'tp_session=; path=/; max-age=0';
         setUser(null);
         router.push('/authentication/sign-in');
       }
