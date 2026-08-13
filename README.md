@@ -1,188 +1,55 @@
-# 🚀 ThreatPulse Hub
-## The Revolutionary Component-First Development Framework
+# ThreatPulse Intelligence Hub
 
-This isn't just another starter template. This is a **paradigm shift** in how AI and humans build web applications - eliminating the biggest bottlenecks in modern frontend development.
+A real-time malware threat intelligence dashboard built with Next.js and MUI. Pulls live malware samples from the MalwareBazaar public API, scores them by threat level, and displays them in a searchable table.
 
-## 🎯 The Revolutionary Strategy
+## Features
 
-**The Problem We Solved:**
-Traditional development wastes 60-80% of time on repetitive UI decisions, layout struggles, and component inconsistencies. AI gets stuck asking "where should I put this button?" instead of solving business problems. Students spend weeks learning CSS positioning instead of building features.
+- **Live Malware Feed** - Fetches recent samples from [MalwareBazaar](https://bazaar.abuse.ch/) every 5 minutes
+- **Threat Scoring** - Each sample is scored 0-100 based on malware family, signature, and tags
+- **Threat Classification** - Samples are classified as Critical, High, Medium, or Low
+- **Threat Advisories** - Curated list of active cybersecurity campaigns and advisories
+- **Dark Mode** - Full light/dark theme support
 
-**Our Solution:**
-We strategically sourced a professional MUI-based Next.js template (avoiding unstable Tailwind versions) and transformed it into a **component-first development ecosystem**. Every UI element - buttons, forms, sliders, cards, layouts - already exists as battle-tested, consistent components.
+## Tech Stack
 
-**The Result:**
-- 🤖 **AI codes 5-10x faster** - no UI decision paralysis
-- 🎯 **Zero frontend errors** - components are pre-tested and consistent  
-- 📐 **Perfect alignment every time** - no layout debugging
-- 🧠 **Focus on logic, not styling** - build features, not interfaces
-- 🎓 **Students ship on Day 1** - skip months of CSS learning
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [MUI](https://mui.com/) for UI components
+- [MalwareBazaar CSV API](https://bazaar.abuse.ch/export/csv/recent/) for live threat data
 
-## ⚡ Current Template State
+## Getting Started
 
-### What You Get Out of the Box:
-- ✅ **Clean Dashboard Layout** - Professional app-first interface
-- ✅ **Minimal Sidebar Navigation** - Just Home + easily expandable
-- ✅ **Professional TopNavbar** - Search, profile, notifications, dark mode
-- ✅ **Working Page Examples** - Home dashboard + News feed
-- ✅ **Fast Compilation** - Only essential pages, no bloat
-- ✅ **Hidden Component Arsenal** - 100+ MUI components ready to use
+```bash
+npm install
+npm run dev
+```
 
-### Architecture Highlights:
+Open [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout with providers
-│   ├── page.tsx            # Clean dashboard homepage
-│   └── news/
-│       └── page.tsx        # Example news feed page
-├── components/
-│   └── Layout/
-│       ├── LeftSidebarMenu.tsx  # Minimal 100-line sidebar
-│       ├── TopNavbar/           # Full-featured navbar
-│       └── Footer.tsx           # Standard footer
-└── providers/
-    └── LayoutProvider.tsx  # Smart layout control
+│   ├── page.tsx                    # Home / landing
+│   ├── malware-dashboard/page.tsx  # Main threat dashboard
+│   ├── news/page.tsx               # Threat advisories
+│   └── api/malware-collect/        # API route - fetches & scores malware samples
+├── components/Layout/              # Sidebar, topbar, footer
+├── providers/LayoutProvider.tsx    # Layout wrapper
+└── theme.ts                        # MUI theme config
 ```
 
-## 🤖 AI Instructions - How to Add Features
+## How the Threat Scoring Works
 
-### Adding a New Page (Like the News Page Example):
+The API route (`/api/malware-collect`) fetches the MalwareBazaar recent CSV export and parses each entry. Each sample gets a base score of 20, then points are added based on keywords in the malware signature:
 
-1. **Create the page file:**
-```bash
-mkdir -p src/app/your-page-name
-# Then create src/app/your-page-name/page.tsx
-```
+- Ransomware families (LockBit, BlackCat, REvil, etc.) +55
+- Trojans, backdoors, RATs, stealers +40
+- Adware, miners +20
+- APT indicators +15, exploits +20, zero-days +25
 
-2. **Use this template structure:**
-```typescript
-import * as React from "react";
-import { Box, Typography, Paper, Card, CardContent } from "@mui/material";
+Scores are capped at 100. Samples are then bucketed into Critical / High / Medium / Low based on the same signature patterns.
 
-export default function YourPageName() {
-  return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
-        📋 Your Page Title
-      </Typography>
-      {/* Your content here - use MUI components */}
-    </Box>
-  );
-}
-```
+## Live App
 
-3. **Add to sidebar navigation:**
-Edit `src/components/Layout/LeftSidebarMenu.tsx` and add:
-```typescript
-<Box className="sidebar-single-menu" sx={{ mb: 1 }}>
-  <Link
-    href="/your-page-name"
-    className={`sidemenu-link ${pathname === "/your-page-name" ? "active" : ""}`}
-    style={{ /* copy existing styles */ }}
-  >
-    <i className="material-symbols-outlined" style={{ marginRight: "12px", fontSize: "20px" }}>
-      your_icon_name
-    </i>
-    <Typography component="span" sx={{ fontWeight: pathname === "/your-page-name" ? 600 : 400 }}>
-      Your Page Name
-    </Typography>
-  </Link>
-</Box>
-```
-
-### Understanding the Layout System:
-
-- **LayoutProvider** controls when to show/hide navigation
-- **Authentication pages** hide the navbar/sidebar automatically
-- **All other pages** get the full dashboard layout
-- **No need to add navbar/footer** to individual pages - it's automatic!
-
-### Available MUI Components:
-
-You have access to the **entire MUI component library**:
-- `Button`, `TextField`, `Select`, `Checkbox`, `Radio`, `Switch`
-- `Card`, `Paper`, `Box`, `Container`, `Grid`
-- `Table`, `List`, `Avatar`, `Chip`, `Badge`
-- `Dialog`, `Snackbar`, `Alert`, `Skeleton`
-- `Tabs`, `Stepper`, `Accordion`, `Drawer`
-- And 50+ more components!
-
-### Best Practices for AI:
-
-1. **Always use MUI components** - don't create custom UI from scratch
-2. **Follow the existing pattern** - look at News page for reference
-3. **Keep sidebar minimal** - only add essential navigation items
-4. **Use Box for layout** - it's the most flexible container
-5. **Typography for all text** - maintains consistent styling
-6. **sx prop for styling** - inline styles that work with theme
-
-### Common Tasks:
-
-**Add a form:**
-```typescript
-import { TextField, Button } from "@mui/material";
-// Use TextField for inputs, Button for actions
-```
-
-**Add a data table:**
-```typescript
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-// Full table components available
-```
-
-**Add cards/stats:**
-```typescript
-import { Card, CardContent } from "@mui/material";
-// Wrap content in cards for clean sections
-```
-
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-Visit `http://localhost:3000` to see your app!
-
-## 🔐 Phase 2: Mock Authentication Strategy (Coming Soon)
-
-### The "Sandbox-First Uncommenting" Flow:
-1. **Day 1:** Mock auth works perfectly (no Amplify setup needed)
-2. **Day 3:** Student wants real auth
-3. **Teaching moment:** "First, learn about Amplify sandbox"
-4. **Student runs:** `npx ampx sandbox` (creates amplify_outputs.json)
-5. **Then:** AI can safely uncomment Amplify imports and real auth code
-
-**Mock Authentication Features:**
-- Google SSO button (mock flow)
-- Username/password toggle
-- "Hey there, Johnny!" mock user
-- Progressive enhancement to real auth
-- Educational flow from mock → sandbox → real authentication
-
-## 🏗️ Template Origin Story
-
-This revolutionary template started as a **$20 ThemeForest MUI Next.js template** that we strategically transformed. We deliberately avoided Tailwind (due to version instability) and chose MUI for its component stability and consistency. The original 500+ component pages were hidden in a "warehouse" folder, creating our **hidden component arsenal** that AI can discover without impacting compilation.
-
-## 📊 Success Metrics
-
-- ✅ **Lightning-fast compile times** - Only essential pages built
-- ✅ **6 visible pages max** - Home, News, Profile, Login, Signup (future)
-- ✅ **500+ hidden components** - AI-discoverable but student-invisible
-- ✅ **Zero decision paralysis** - Students see clean, minimal interface
-- ✅ **Professional results Day 1** - Pre-built patterns for everything
-
-This template is being actively developed with a focus on **education-first** and **AI-optimized** development patterns.
-
----
-
-
-**Built by Gokulkrishna A** - Revolutionizing development education through intelligent tooling and component-first architecture.
+https://threatpulse-hub-main.vercel.app
