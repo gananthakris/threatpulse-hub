@@ -1,49 +1,28 @@
-import "swiper/css";
-import "swiper/css/bundle";
-import 'remixicon/fonts/remixicon.css';
-import 'react-datetime-picker/dist/DateTimePicker.css';
-import 'react-calendar/dist/Calendar.css';
-import 'react-clock/dist/Clock.css';
-import '../../node_modules/boxicons/css/boxicons.min.css';
-import '../../styles/front-pages.css';
-import "../../styles/control-panel.css";
-import "../../styles/left-sidebar-menu.css";
-import "../../styles/top-navbar.css";
-import "../../styles/crypto-dashboard.css";
-import "../../styles/chat.css";
-import "../../styles/horizontal-navbar.css";
-import "../../styles/globals.css";
-import "../../styles/dark.css";
+import './globals.css'
+import type { Metadata } from 'next'
+import LayoutProvider from '@/providers/LayoutProvider'
 
-import * as React from "react";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import theme from "@/theme";
-import LayoutProvider from "@/providers/LayoutProvider";
+export const metadata: Metadata = {
+  title: 'ThreatPulse Intelligence Hub',
+  description: 'Real-time malware threat intelligence powered by MalwareBazaar',
+}
 
-export const metadata = {
-  title: "ThreatPulse Intelligence Hub",
-  description: "Real-time malware threat intelligence platform",
-};
-
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link
+          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600&family=Inter:wght@400&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"
+        />
+        <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          rel="stylesheet"
         />
       </head>
-      <body>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <LayoutProvider>{props.children}</LayoutProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+      <body className="bg-bg-deep text-on-surface font-sans antialiased">
+        <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>
-  );
+  )
 }
