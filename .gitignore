@@ -12,3 +12,5 @@ logs/.env.local
 setup-google-oauth-secrets.sh
 .vercel
 .env*.local
+backend/.env
+backend/venv/
