@@ -13,8 +13,6 @@ import "../../styles/crypto-dashboard.css";
 import "../../styles/chat.css";
 import "../../styles/horizontal-navbar.css";
 import "../../styles/globals.css";
-
-// globals dark Mode CSS
 import "../../styles/dark.css";
 
 import * as React from "react";
@@ -23,12 +21,10 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import LayoutProvider from "@/providers/LayoutProvider";
-import { AuthProvider } from "@/providers/AuthProvider";
-import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 
 export const metadata = {
   title: "ThreatPulse Intelligence Hub",
-  description: "Real-time malware threat intelligence platform powered by AWS Amplify",
+  description: "Real-time malware threat intelligence platform",
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -43,15 +39,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            
-            {/* Configure Amplify on client side */}
-            <ConfigureAmplifyClientSide />
-
-            <AuthProvider>
-              <LayoutProvider>{props.children}</LayoutProvider>
-            </AuthProvider>
+            <LayoutProvider>{props.children}</LayoutProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

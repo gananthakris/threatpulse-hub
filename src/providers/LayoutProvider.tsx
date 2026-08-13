@@ -1,62 +1,23 @@
 "use client";
 
 import React, { useState, ReactNode } from "react";
-import { usePathname } from "next/navigation";
 import LeftSidebarMenu from "@/components/Layout/LeftSidebarMenu";
-import TopNavbar from "./../components/Layout/TopNavbar/index";
+import TopNavbar from "@/components/Layout/TopNavbar/index";
 import Footer from "@/components/Layout/Footer";
-import ControlPanel from "@/components/Layout/ControlPanel";
 
-interface LayoutProviderProps {
-  children: ReactNode;
-}
-
-const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
-  const [active, setActive] = useState<boolean>(false);
-  const pathname = usePathname();
-
-  const toggleActive = () => {
-    setActive(!active);
-  };
-
-  const isAuthPage = [
-    "/authentication/sign-in",
-    "/authentication/sign-in/",
-    "/authentication/sign-up",
-    "/authentication/sign-up/",
-  ].includes(pathname);
+const LayoutProvider = ({ children }: { children: ReactNode }) => {
+  const [collapsed, setCollapsed] = useState(false);
+  const toggle = () => setCollapsed(!collapsed);
 
   return (
-    <>
-      <div className={`main-wrapper-content ${active ? "active" : ""}`}>
-        {!isAuthPage && (
-          <>
-            <TopNavbar toggleActive={toggleActive} />
-
-            <LeftSidebarMenu toggleActive={toggleActive} isCollapsed={active} />
-          </>
-        )}
-
-        <div className="main-content">
-          {children}
-
-          {!isAuthPage && <Footer />}
-        </div>
+    <div className={`main-wrapper-content ${collapsed ? "active" : ""}`}>
+      <TopNavbar toggleActive={toggle} />
+      <LeftSidebarMenu toggleActive={toggle} isCollapsed={collapsed} />
+      <div className="main-content">
+        {children}
+        <Footer />
       </div>
-
-      <div
-        style={{
-          position: "fixed",
-          bottom: "15px",
-          right: "15px",
-          zIndex: "-5",
-          opacity: 0,
-          visibility: "hidden",
-        }}
-      >
-        <ControlPanel />
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -17,18 +17,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import ChatIcon from "@mui/icons-material/Chat";
 import ListIcon from "@mui/icons-material/List";
-import Logout from "@mui/icons-material/Logout";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SupportIcon from "@mui/icons-material/Support";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { useAuth } from "@/providers/AuthProvider";
 
 interface ProfileProps {}
 
 const Profile: React.FC<ProfileProps> = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const { user, signOut } = useAuth();
   const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -37,10 +33,6 @@ const Profile: React.FC<ProfileProps> = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleLogout = async () => {
-    await signOut();
   };
 
   return (
@@ -63,7 +55,7 @@ const Profile: React.FC<ProfileProps> = () => {
             }}
             className="mr-8"
           >
-            {user?.avatar || "U"}
+            U
           </Avatar>
           <Typography
             variant="h3"
@@ -74,7 +66,7 @@ const Profile: React.FC<ProfileProps> = () => {
             }}
             className="text-black"
           >
-            {user?.name || "User"}
+            User
           </Typography>
           <KeyboardArrowDownIcon sx={{ fontSize: "15px" }} />
         </IconButton>
@@ -256,39 +248,6 @@ const Profile: React.FC<ProfileProps> = () => {
           </Link>
         </MenuItem>
 
-        <MenuItem sx={{ padding: "8px 20px" }}>
-          <Link
-            href="/authentication/lock-screen/"
-            className="text-black"
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <ListItemIcon sx={{ mr: "-10px", mt: "-3px" }}>
-              <LockOpenIcon sx={{ fontSize: "20px" }} className="text-black" />
-            </ListItemIcon>
-
-            <span style={{ fontSize: "13px" }}>Lock Screen</span>
-          </Link>
-        </MenuItem>
-
-        <MenuItem sx={{ padding: "8px 20px" }} onClick={handleLogout}>
-          <Box
-            className="text-black"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-          >
-            <ListItemIcon sx={{ mr: "-10px", mt: "-3px" }}>
-              <Logout sx={{ fontSize: "20px" }} className="text-black" />
-            </ListItemIcon>
-
-            <span style={{ fontSize: "13px" }}>Logout</span>
-          </Box>
-        </MenuItem>
       </Menu>
     </>
   );
