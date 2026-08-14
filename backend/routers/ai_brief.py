@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
 from langchain_groq import ChatGroq
 from langchain.prompts import ChatPromptTemplate
 
 from config import settings
-from fetcher import compute_stats, fetch_samples
 
 router = APIRouter()
 
@@ -28,24 +28,28 @@ Write a 3-sentence professional threat intelligence brief. Be specific about the
 chain = prompt | llm
 
 
-@router.get("/ai-brief")
-async def ai_brief():
-    try:
-        samples = await fetch_samples()
-        stats = compute_stats(samples)
-    except Exception as e:
-        raise HTTPException(status_code=503, detail=f"Data fetch error: {e}")
+class StatsPayload(BaseModel):
+    total: int
+    critical: int
+    high: int
+    medium: int
+    low: int
+    top_families: list[str]
+    file_types: list[str]
 
-    families = ", ".join(f["name"] for f in stats["top_families"][:5]) or "Unknown"
-    types = ", ".join(f["type"] for f in stats["file_types"][:5]) or "Unknown"
+
+@router.post("/ai-brief")
+async def ai_brief(payload: StatsPayload):
+    families = ", ".join(payload.top_families[:5]) or "various unknown families"
+    types = ", ".join(payload.file_types[:5]) or "various file types"
 
     try:
         result = chain.invoke({
-            "total": stats["total"],
-            "critical": stats["critical"],
-            "high": stats["high"],
-            "medium": stats["medium"],
-            "low": stats["low"],
+            "total": payload.total,
+            "critical": payload.critical,
+            "high": payload.high,
+            "medium": payload.medium,
+            "low": payload.low,
             "top_families": families,
             "file_types": types,
         })
