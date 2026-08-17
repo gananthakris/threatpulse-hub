@@ -52,4 +52,4 @@ Scores are capped at 100. Samples are then bucketed into Critical / High / Mediu
 
 ## Live App
 
-https://threatpulse-hub-main.vercel.app
+https://threatpulse-hub.vercel.app
