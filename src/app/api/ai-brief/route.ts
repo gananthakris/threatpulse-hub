@@ -9,7 +9,10 @@ export async function POST(req: NextRequest) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     })
-    if (!res.ok) return Response.json({ error: `Backend ${res.status}` }, { status: res.status })
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}))
+      return Response.json({ error: err.detail ?? `Backend ${res.status}` }, { status: res.status })
+    }
     return Response.json(await res.json())
   } catch {
     return Response.json({ error: 'Backend unavailable' }, { status: 503 })
