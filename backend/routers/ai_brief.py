@@ -8,7 +8,7 @@ from config import settings
 router = APIRouter()
 
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+    model="llama3-70b-8192",
     temperature=0.3,
     max_tokens=400,
     groq_api_key=settings.groq_api_key,
